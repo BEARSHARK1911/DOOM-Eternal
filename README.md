@@ -1,2 +1,5 @@
-# DOOM-Eternal
 Doom Eternal scripts for modders
+
+DOOM ETERNAL AUTO-EXTRACT
+
+DOOM ETERNAL AUTO-EXPORT
