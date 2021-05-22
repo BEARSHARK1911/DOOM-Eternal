@@ -5,14 +5,11 @@ ECHO/
 ECHO 	[44;96m                                    [0m 
 ECHO 	[44;96m  DOOM ETERNAL MOD ASSEMBLER v1.0   [0m 
 ECHO 	[44;96m  by BEARSHARK1911                  [0m 
-ECHO/	[44;96m  DATE 02-13-2021                   [0m 
+ECHO/	[44;96m  DATE 05-13-2021                   [0m 
 ECHO 	[44;96m                                    [0m 
 ECHO/
 ECHO/	AUTOMATICALLY PACK, EXPORT, AND LAUNCH MODS TO DOOM ETERNAL
-ECHO/
-ECHO/ 
-ECHO/
-ECHO/
+ECHO/	
 
 SET DOOM_ETERNAL_PATH=C:\Program Files (x86)\Steam\steamapps\common\DOOMEternal
 SET DOOM_ETERNAL_MOD_INJECTOR_PATH=%DOOM_ETERNAL_PATH%\EternalModInjector.bat
@@ -38,26 +35,38 @@ ECHO %MOD_ARCHIVE_PATH%
 
 ECHO TESTING ---- %ARCHIVE_PATH%
 
-"c:\Program Files\7-Zip\7z.exe" a "%MOD_ARCHIVE_PATH%" "*" -x!ARCHIVES  -x!*.zip
+"c:\Program Files\7-Zip\7z.exe" a "%MOD_ARCHIVE_PATH%" "*" -x!ARCHIVES  -x!*.zip -x!*.git
 
 copy "%MOD_ARCHIVE_PATH%" "%MOD_DIRECTORY_PATH%"
 
-:: CALL "%DOOM_ETERNAL_MOD_INJECTOR_PATH%"
+choice /M "Run DOOMETERNAL MOD INJECTOR? Y/N" /c YN
 
-PAUSE
+IF errorlevel 255 (
+  ECHO Error
+) ELSE IF errorlevel 2 (
+  ECHO EXITING
+) ELSE IF errorlevel 1 (
+	CALL :RUN_DOOMETERNAL_MOD_INJECTOR
+) ELSE IF errorlevel 0 (
+  ECHO Ctrl+C pressed.
+)
+GOTO Exit
+
+:RUN_DOOMETERNAL_MOD_INJECTOR
+CALL "%DOOM_ETERNAL_MOD_INJECTOR_PATH%"
+EXIT /B 0
 
 :FUNCTION_FILENAME
 for %%a in (.) do (
 	SET MODNAME=%%~nxa
 )
 SET MODNAME=%MODNAME%
-
 EXIT /B 0
 
 :: create archive directory
 :MKDIR
 IF NOT EXIST "%~1" (
-	echo CREATING ARCHIVE DIRECTORY
+	ECHO CREATING ARCHIVE DIRECTORY
 	md "%ARCHIVE_PATH%"
 )
 EXIT /B 0
