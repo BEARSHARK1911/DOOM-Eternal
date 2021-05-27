@@ -46,7 +46,7 @@ SET DOOM_ETERNAL_DIRECTORY=C:\Program Files (x86)\Steam\steamapps\common\DOOMEte
 SET CAMPAIGN_DIRECTORY=%DOOM_ETERNAL_DIRECTORY%\base\game
 SET CONFIG_FILE="DoomEternalExtractor_Settings.txt"
 
-SET DOOM_ETERNAL_FILES=gameresources gameresources_patch1 gameresources_patch2
+SET DOOM_ETERNAL_FILES=gameresources gameresources_patch1 gameresources_patch2 warehouse
 SET INPUT_FILE_EXT=.resources
 SET OUTPUT_FILE_EXT=.decl
 
@@ -58,9 +58,9 @@ SET FILE_DOOMEternalx64vk=%DOOM_ETERNAL_DIRECTORY%\DOOMEternalx64vk.exe
 SET FILE_gameresources=%DOOM_ETERNAL_DIRECTORY%\base\gameresources.resources
 SET FILE_gameresources_patch1=%DOOM_ETERNAL_DIRECTORY%\base\gameresources_patch1.resources
 SET FILE_gameresources_patch2=%DOOM_ETERNAL_DIRECTORY%\base\gameresources_patch2.resources
-SET FILE_meta=%DOOM_ETERNAL_DIRECTORY%\base\meta.resources
+SET FILE_warehouse=%DOOM_ETERNAL_DIRECTORY%\base\warehouse.resources
 
-SET FILE_LIST=%FILE_DOOMEternalx64vk% %FILE_gameresources% %FILE_gameresources_patch1% %FILE_gameresources_patch2% %FILE_meta%
+SET FILE_meta=%DOOM_ETERNAL_DIRECTORY%\base\meta.resources
 
 SET MD5_FILE_DOOMEternalx64vk=96556f8b0dfc56111090a6b663969b86
 SET MD5_gameresources=4376f5c5858b433af06ddf58bc4ef5ac
